@@ -1,0 +1,32 @@
+[
+    {
+        "id": 3174380,
+        "name": "Macerata",
+        "state": "",
+        "country": "IT",
+        "coord": {
+            "lon": 13.44108,
+            "lat": 43.298161
+        }
+    },
+    {
+        "id": 3174394,
+        "name": "Le Macchie",
+        "state": "",
+        "country": "IT",
+        "coord": {
+            "lon": 16.76667,
+            "lat": 41.133331
+        }
+    },
+    {
+        "id": 3174397,
+        "name": "Macchia Valfortore",
+        "state": "",
+        "country": "IT",
+        "coord": {
+            "lon": 14.91174,
+            "lat": 41.595032
+        }
+    }
+]

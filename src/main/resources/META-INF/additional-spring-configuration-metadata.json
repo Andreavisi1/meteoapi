@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "open_weather.api_key",
+    "type": "java.lang.String",
+    "description": "A description for 'open_weather.api_key'"
+  },
+  {
+    "name": "meteoapi.pwd",
+    "type": "java.lang.String",
+    "description": "A description for 'meteoapi.pwd'"
+  }
+]}

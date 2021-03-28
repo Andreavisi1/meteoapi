@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "e6cc70fc-c63f-44de-ae24-1ecacd0900af",
+		"name": "OpenWeather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "meteoapi",
+			"item": [
+				{
+					"name": "http://localhost:8083",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8083/forecast",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/forecast?country=it,ro&city=Anco*,Timisoara",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"forecast"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "it,ro"
+								},
+								{
+									"key": "city",
+									"value": "Anco*,Timisoara"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8083/forecast/statistics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/forecast/statistics?start=2020-03-21 00:00:00&end=2020-05-21 23:59:59&country=it&city=Rome",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"forecast",
+								"statistics"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "2020-03-21 00:00:00"
+								},
+								{
+									"key": "end",
+									"value": "2020-05-21 23:59:59"
+								},
+								{
+									"key": "country",
+									"value": "it"
+								},
+								{
+									"key": "city",
+									"value": "Rome"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8083/forecast/lookup",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/forecast/lookup/{{secret}}/?sleep=1&type=seconds&country=it&city=Rome",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"forecast",
+								"lookup",
+								"{{secret}}",
+								""
+							],
+							"query": [
+								{
+									"key": "sleep",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "seconds",
+									"description": "// possible values for type: milliseconds, seconds, minutes, hours, days"
+								},
+								{
+									"key": "country",
+									"value": "it"
+								},
+								{
+									"key": "city",
+									"value": "Rome"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8083/forecast/lookup/secret/stop",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/forecast/lookup/{{secret}}/stop",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"forecast",
+								"lookup",
+								"{{secret}}",
+								"stop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8083/forecast/seed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/forecast/seed/{{secret}}/?sleep=1&type=seconds&country=it&city=Rome",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"forecast",
+								"seed",
+								"{{secret}}",
+								""
+							],
+							"query": [
+								{
+									"key": "sleep",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "seconds",
+									"description": "// possible values for type: milliseconds, seconds, minutes, hours, days"
+								},
+								{
+									"key": "country",
+									"value": "it"
+								},
+								{
+									"key": "city",
+									"value": "Rome"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8083/forecast/seed/stop",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/forecast/seed/{{secret}}/stop",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"forecast",
+								"seed",
+								"{{secret}}",
+								"stop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8083/cities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/cities?country=it&city=Ancona",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"cities"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "it"
+								},
+								{
+									"key": "city",
+									"value": "Ancona"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8083/cities/load",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/cities/load/{{secret}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"cities",
+								"load",
+								"{{secret}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8083/cities/stop",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/cities/stop/{{secret}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"cities",
+								"stop",
+								"{{secret}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "openweather_requests",
+			"item": [
+				{
+					"name": "Coordinates by location name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.openweathermap.org/geo/1.0/direct?q=Macerata,mc,it&limit=5&appid={{api_key}}",
+							"protocol": "http",
+							"host": [
+								"api",
+								"openweathermap",
+								"org"
+							],
+							"path": [
+								"geo",
+								"1.0",
+								"direct"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Macerata,mc,it"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "appid",
+									"value": "{{api_key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weather by city name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "api.openweathermap.org/data/2.5/weather?q=Macerata,it&units=metric&appid={{api_key}}",
+							"host": [
+								"api",
+								"openweathermap",
+								"org"
+							],
+							"path": [
+								"data",
+								"2.5",
+								"weather"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Macerata,it"
+								},
+								{
+									"key": "units",
+									"value": "metric"
+								},
+								{
+									"key": "appid",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Call current weather data for one location"
+					},
+					"response": []
+				},
+				{
+					"name": "Weather by city id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.openweathermap.org/data/2.5/weather?id=6542126&units=metric&appid={{api_key}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openweathermap",
+								"org"
+							],
+							"path": [
+								"data",
+								"2.5",
+								"weather"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6542126"
+								},
+								{
+									"key": "units",
+									"value": "metric"
+								},
+								{
+									"key": "appid",
+									"value": "{{api_key}}"
+								}
+							]
+						},
+						"description": "Call current weather data for one location"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
