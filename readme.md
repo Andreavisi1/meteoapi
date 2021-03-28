@@ -337,11 +337,13 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
     
 # Allegati
 
-- UseCase Diagram:
+- Classes Diagram:
 
 [Scarica qui l'UML del progetto in formto pdf](./uml/UML_progetto.pdf)
 
 ![](./uml/UML_progetto.png "")
+
+- UseCase Diagram:
 
 <img width="817" alt="UseCase Diagram" src="https://user-images.githubusercontent.com/77984592/112762996-e8807880-9002-11eb-899f-f5ec9cd0df5f.png">
 
