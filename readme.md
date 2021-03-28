@@ -344,6 +344,7 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
   - “Composition”
 
 
+
 # JUnit tests
 
 Abbiamo implementato dei test per verificare principalmente se il tipo di dato ottenuto dalle nostre funzioni fosse effettivamente il tipo di dato da noi voluto (usando degli "assertTrue") e anche per verificare che le funzioni riportassero il dato che ci interessava ottenere (non solo il tipo) usando degli "assertEquals".
@@ -370,19 +371,22 @@ Tests sul controllore `ForecastRestController` :
 Abbiamo deciso di testare la correttezza delle funzioni dei controllori perchè sono la parte fondamentale del programma e dunque bisogna verificarne il giusto funzionamento.
 
 
+
 # Allegati
-
-* Sequences Diagram: già allegato in precedenza nel read me.
-
-- Classes Diagram:
-
-[Scarica qui l'UML del progetto in formto pdf](./uml/UML_progetto.pdf)
-
-![](./uml/UML_progetto.png )
 
 - UseCase Diagram:
 
 <img width="817" alt="UseCase Diagram" src="https://user-images.githubusercontent.com/77984592/112762996-e8807880-9002-11eb-899f-f5ec9cd0df5f.png">
+
+- Classes Diagram:
+
+![](./uml/UML_progetto.png )
+
+[Scarica qui l'UML delle classi del progetto in formto pdf](./uml/UML_progetto.pdf)
+
+- Sequences Diagram: già allegati in precedenza.
+
+
 
 # Authors
 
