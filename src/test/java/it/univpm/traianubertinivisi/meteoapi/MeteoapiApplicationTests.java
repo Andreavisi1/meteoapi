@@ -50,7 +50,7 @@ class MeteoapiApplicationTests {
 	}
 
 	@Test
-	void getForecastForTest () throws Exception{
+	void getForecastForTest() throws Exception{
 		assertTrue(this.forecastRestController.getForecastFor("Macerata", "It") instanceof List<?>);
 	}
 
@@ -72,6 +72,7 @@ class MeteoapiApplicationTests {
 	@Test 
 	void stopForecastSeeding() {
 		assertTrue(this.forecastRestController.stopForecastSeeding("00980018-f515-4390-9961-d865c629bcf9") instanceof String);
+		assertEquals("Forecast seeding stopped...", this.forecastRestController.stopForecastSeeding("00980018-f515-4390-9961-d865c629bcf9"));
 	}
 
 	@Test

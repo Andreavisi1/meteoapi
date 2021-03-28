@@ -14,59 +14,61 @@ Per poter utilizzare si devono impostare alcuni parametri nel file **src\\main\\
 
 <font size="5">**meteoapi.pwd**</font>
 
--   deve contenere una stringa che rappresenta la password per accedere ad alcuni URL del micro‑servizio. Di default è impostata come "secret" e se viene reimpostata dev'essere corretta anche negli URL che ne fanno uso; URL che elencheremo di seguito.
+- deve contenere una stringa che rappresenta la password per accedere ad alcuni URL del micro‑servizio. Di default è impostata come "secret" e se viene reimpostata dev'essere corretta anche negli URL che ne fanno uso; URL che elencheremo di seguito.
 
 <font size="5">**open_weather.api_key**</font>
 
--   rappresenta la API Key fornita da [www.openweathermap.org](https://openweathermap.org/) per accedere ai suoi servizi. Per ottenere la suddetta chiave ci si deve iscrivere sul sito del provider di servizi.
+- rappresenta la API Key fornita da [www.openweathermap.org](https://openweathermap.org/) per accedere ai suoi servizi. Per ottenere la suddetta chiave ci si deve iscrivere sul sito del provider di servizi.
 
 <font size="5">**spring.datasource.url**</font>
 
--   deve contenere la stringa di connessione al database ed il valore implicito è: **jdbc:mysql://localhost:3306/meteoapi?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false**, dove **meteoapi** rappresenta il nome del database in cui si salveranno i dati. Se il nome del vostro database è o sarà diverso andrà cambiato di conseguenza.
+- deve contenere la stringa di connessione al database ed il valore implicito è: **jdbc:mysql://localhost:3306/meteoapi?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false**, dove **meteoapi** rappresenta il nome del database in cui si salveranno i dati. Se il nome del vostro database è o sarà diverso andrà cambiato di conseguenza.
 
 <font size="5">**spring.datasource.username**</font>
 
--   rappresenta il nome utente con cui si accede al database (es. root)
+- rappresenta il nome utente con cui si accede al database (es. root)
 
 <font size="5">**spring.datasource.password**</font>
 
--   deve contenere la password di accesso al database. Può essere nullo
-    se non c'è una password impostato per l'utente usato.
+- deve contenere la password di accesso al database. Può essere nullo
+  se non c'è una password impostato per l'utente usato.
 
 **Di seguito saranno elencati gli URL di accesso al micro-servizio con la descrizione afferente:**
 
 
+| Metodo | Indirizzo |
+| :-: | :- |
+| GET | [http://localhost:8083](#home) |
+| GET | [http://localhost:8083/cities?country=CodiceDelPaese&city=NomeCittà](#cities) |
+| GET | [http://localhost:8083/cities/load/{{secret}}](#cities_load) |
+| GET | [http://localhost:8083/cities/stop/{{secret}}](#cities_load_stop) |
+| GET | [http://localhost:8083/forecast/seed/{{secret}}/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCittà](#seed) |
+| GET | [http://localhost:8083/forecast/seed/{{secret}}/stop](#seed_stop) |
+| GET | [http://localhost:8083/forecast/lookup/{{secret}}/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCittà](#forecast_lookup) |
+| GET | [http://localhost:8083/forecast/lookup/{{secret}}/stop](#forecast_lookup_stop) |
+| GET | [http://localhost:8083/forecast?country=CodiceDelPaese&city=NomeCittà](#forecast) |
+| GET | [http://localhost:8083/forecast/statistics?start=DataInizio&end=DataFine&country=CodiceDelPaese&city=NomeCittà](#forecast_statistics) |
 
-| Metodo |        Indirizzo        |
-|:------:|:-----------------------|
-|   GET  | [http://localhost:8083](#home) |
-|   GET  |[http://localhost:8083/cities?country=CodiceDelPaese&city=NomeCittà](#cities)                     |
-|   GET  |[http://localhost:8083/cities/load/{{secret}}](#cities_load)                    |
-|   GET  |[http://localhost:8083/cities/stop/{{secret}}](#cities_load_stop)                         |
-|   GET  |[http://localhost:8083/forecast/seed/{{secret}}/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCittà](#seed)                        |
-|   GET  |[http://localhost:8083/forecast/seed/{{secret}}/stop](#seed_stop)                         |
-|   GET  |[http://localhost:8083/forecast/lookup/{{secret}}/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCittà](#forecast_lookup)                         |
-|   GET  |[http://localhost:8083/forecast/lookup/{{secret}}/stop](#forecast_lookup_stop)                        |
-|   GET  |[http://localhost:8083/forecast?country=CodiceDelPaese&city=NomeCittà](#forecast)                         |
-|   GET  |[http://localhost:8083/forecast/statistics?start=DataInizio&end=DataFine&country=CodiceDelPaese&city=NomeCittà](#forecast_statistics)|
-
-----
+---
 
 <span id="home"></span>
 
-| Metodo |        Indirizzo        |
-|:------:|:-----------------------|
-|   GET  | <http://localhost:8083> |
+
+| Metodo | Indirizzo |
+| :-: | :- |
+| GET | [http://localhost:8083](http://localhost:8083) |
 
 - Rappresenta l'home page del micro-servizio e contiene il nome ed il numero di città presenti nel database, estratti da un elenco messo a disposizione da [www.openweathermap.org](https://openweathermap.org/).
 
-![](./uml/request_flow/get_home.png "")
-----
+![](./uml/request_flow/get_home.png )
+-------------------------------------
+
 <span id="cities"></span>
 
-| Metodo |        Indirizzo        |
-|:------:|:-----------------------|
-|   GET  | <http://localhost:8083/cities?country=CodiceDelPaese&city=NomeCittà> |
+
+| Metodo | Indirizzo |
+| :-: | :- |
+| GET | [http://localhost:8083/cities?country=CodiceDelPaese&city=NomeCittà](http://localhost:8083/cities?country=CodiceDelPaese&city=NomeCitt%C3%A0) |
 
 - Restituisce informazioni riguardanti le città indicate mediante i parametri della chiamata. I valori restituiti riguardano le città caricate nel database del sito.
 
@@ -101,16 +103,20 @@ Il risultato è di tipo **json array** in cui sono riportate le informazioni rel
     }
 ]
 ```
-![](./uml/request_flow/get_cities.png "")
-----
+
+![](./uml/request_flow/get_cities.png )
+---------------------------------------
+
 <!-- blank line -->
+
 <!-- blank line -->
 
 <span id="cities_load"></span>
 
-| Metodo |        Indirizzo        |
-|:------:|:-----------------------|
-|   GET  | <http://localhost:8083/cities/load/{{secret}}> |
+
+| Metodo | Indirizzo |
+| :-: | :- |
+| GET | [http://localhost:8083/cities/load/{{secret}}](http://localhost:8083/cities/load/%7B%7Bsecret%7D%7D) |
 
 - Questa chiamata permette di caricare automaticamente la lista delle città messa a disposizione da [www.openweathermap.org](https://openweathermap.org/) nel database dell’applicazione.
 
@@ -118,14 +124,15 @@ Il risultato è di tipo **json array** in cui sono riportate le informazioni rel
 
 ***{{secret}}*** – è una stringa che rappresenta un UUID (universally unique identifier, cioè un identificativo unico universale). Può essere ottenuto sul sito [www.uuidgenerator.net](https://www.uuidgenerator.net/) e va impostato anche nel file **application.properties**.
 
-![](./uml/request_flow/get_cities_load.png "")
-----
+![](./uml/request_flow/get_cities_load.png )
+--------------------------------------------
 
 <span id="cities_load_stop"></span>
 
-| Metodo |        Indirizzo        |
-|:------:|:-----------------------|
-|   GET  | <http://localhost:8083/cities/stop/{{secret}}> |
+
+| Metodo | Indirizzo |
+| :-: | :- |
+| GET | [http://localhost:8083/cities/stop/{{secret}}](http://localhost:8083/cities/stop/%7B%7Bsecret%7D%7D) |
 
 - Questa chiamata ferma il caricamento automatico della lista contenete le città messa a disposizione da [www.openweathermap.org](https://openweathermap.org/) nel database dell’applicazione.
 
@@ -133,13 +140,14 @@ Il risultato è di tipo **json array** in cui sono riportate le informazioni rel
 
 ***{{secret}}*** – è una stringa che rappresenta un UUID (universally unique identifier, cioè un identificativo unico universale). Può essere ottenuto sul sito [www.uuidgenerator.net](https://www.uuidgenerator.net/) e va impostato anche nel file **application.properties**.
 
-----
+---
 
 <span id="seed"></span>
 
-| Metodo |        Indirizzo        |
-|:------:|:-----------------------|
-|   GET  | <http://localhost:8083/forecast/seed/{{secret}}/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCittà> |
+
+| Metodo | Indirizzo |
+| :-: | :- |
+| GET | [http://localhost:8083/forecast/seed/{{secret}}/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCittà](http://localhost:8083/forecast/seed/%7B%7Bsecret%7D%7D/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCitt%C3%A0) |
 
 - Per ragioni legate al test dell’applicazione questa richiesta carica nel database previsioni meteorologiche fittizie per le città indicate nei parametri. È importante reimpostare la tabella nel database prima di inserire dati reali.
 
@@ -165,15 +173,16 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 
 **L'uso di tali caratteri permette di realizzare ricerche generiche come, per esempio, A\* nel parametro city andrà a ricercare tutte le città che iniziano con la lettera A.**
 
-![](./uml/request_flow/get_forecast_seed.png "")
+![](./uml/request_flow/get_forecast_seed.png )
 
-----
+---
 
 <span id="seed_stop"></span>
 
-| Metodo |        Indirizzo        |
-|:------:|:-----------------------|
-|   GET  | <http://localhost:8083/forecast/seed/{{secret}}/stop> |
+
+| Metodo | Indirizzo |
+| :-: | :- |
+| GET | [http://localhost:8083/forecast/seed/{{secret}}/stop](http://localhost:8083/forecast/seed/%7B%7Bsecret%7D%7D/stop) |
 
 - Ferma l’inserimento dei dati meteo fittizi nel database.
 
@@ -181,17 +190,16 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 
 ***{{secret}}*** – è una stringa che rappresenta un UUID (universally unique identifier, cioè un identificativo unico universale). Può essere ottenuto sul sito [www.uuidgenerator.net](https://www.uuidgenerator.net/) e va impostato anche nel file **application.properties**.
 
-
-----
+---
 
 <span id="forecast_lookup"></span>
 
-| Metodo |        Indirizzo        |
-|:------:|:-----------------------|
-|   GET  | <http://localhost:8083/forecast/lookup/{{secret}}/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCittà> |
+
+| Metodo | Indirizzo |
+| :-: | :- |
+| GET | [http://localhost:8083/forecast/lookup/{{secret}}/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCittà](http://localhost:8083/forecast/lookup/%7B%7Bsecret%7D%7D/?sleep=ValoreIntero&type=IntervalloDiTempo&country=CodiceDelPaese&city=NomeCitt%C3%A0) |
 
 - Questo link fa partire la raccolta automatica delle previsioni meteo dal sito [www.openweathermap.org](https://openweathermap.org/). Assicurarsi di svuotare la tabella dei dati fittizi se risultano caricati.
-
 
 <font size="4">**Parametri:**</font>
 
@@ -215,14 +223,15 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 
 **L'uso di tali caratteri permette di realizzare ricerche generiche come, per esempio, A\* nel parametro city andrà a ricercare tutte le città che iniziano con la lettera A.**
 
-![](./uml/request_flow/get_forecast_autolookup.png "")
-----
+![](./uml/request_flow/get_forecast_autolookup.png )
+----------------------------------------------------
 
 <span id="forecast_lookup_stop"></span>
 
-| Metodo |        Indirizzo        |
-|:------:|:-----------------------|
-|   GET  | <http://localhost:8083/forecast/lookup/{{secret}}/stop> |
+
+| Metodo | Indirizzo |
+| :-: | :- |
+| GET | [http://localhost:8083/forecast/lookup/{{secret}}/stop](http://localhost:8083/forecast/lookup/%7B%7Bsecret%7D%7D/stop) |
 
 - Il presente link fa fermare la raccolta automatica delle previsioni meteo dal sito [www.openweathermap.org](https://openweathermap.org/).
 
@@ -230,13 +239,14 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 
 ***{{secret}}*** – è una stringa che rappresenta un UUID (universally unique identifier, cioè un identificativo unico universale). Può essere ottenuto sul sito [www.uuidgenerator.net](https://www.uuidgenerator.net/) e va impostato anche nel file **application.properties**.
 
-----
+---
 
 <span id="forecast"></span>
 
-| Metodo |        Indirizzo        |
-|:------:|:-----------------------|
-|   GET  | <http://localhost:8083/forecast?country=CodiceDelPaese&city=NomeCittà> |
+
+| Metodo | Indirizzo |
+| :-: | :- |
+| GET | [http://localhost:8083/forecast?country=CodiceDelPaese&city=NomeCittà](http://localhost:8083/forecast?country=CodiceDelPaese&city=NomeCitt%C3%A0) |
 
 - Il suddetto link previsioni meteo in tempo reale dal sito [www.openweathermap.org](https://openweathermap.org/) per le città indicate nei parametri.
 
@@ -270,14 +280,15 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 
 **L'uso di tali caratteri permette di realizzare ricerche generiche come, per esempio, A\* nel parametro city andrà a ricercare tutte le città che iniziano con la lettera A.**
 
-![](./uml/request_flow/get_forecast.png "")
-----
+![](./uml/request_flow/get_forecast.png )
+-----------------------------------------
 
 <span id="forecast_statistics"></span>
 
-| Metodo |        Indirizzo        |
-|:------:|:-----------------------|
-|   GET  | <http://localhost:8083/forecast/statistics?start=DataInizio&end=DataFine&country=CodiceDelPaese&city=NomeCittà> |
+
+| Metodo | Indirizzo |
+| :-: | :- |
+| GET | [http://localhost:8083/forecast/statistics?start=DataInizio&end=DataFine&country=CodiceDelPaese&city=NomeCittà](http://localhost:8083/forecast/statistics?start=DataInizio&end=DataFine&country=CodiceDelPaese&city=NomeCitt%C3%A0) |
 
 - Mediante questo link si va a ottenere informazioni statistiche per i dati provenienti da [www.openweathermap.org](https://openweathermap.org/) e salvati automaticamente nel database. Il risultato è di tipo **json array**.
 
@@ -303,7 +314,6 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 ]
 ```
 
-
 <font size="4">**Parametri:**</font>
 
 ***start***: è la data d’inizio della ricerca in formato yyyy-MM-dd HH:mm:ss, dove yyyy rappresenta l’anno, MM rappresenta il mese, dd rappresenta il giorno, HH l’ora in formato 24h, mm i minuti e ss i secondi.
@@ -324,35 +334,61 @@ In tutti gli URL in cui compaiono i parametri country e city si possono usare i 
 
 **L'uso di tali caratteri permette di realizzare ricerche generiche come, per esempio, A\* nel parametro city andrà a ricercare tutte le città che iniziano con la lettera A.**
 
-![](./uml/request_flow/get_forecast_statistics.png "")
+![](./uml/request_flow/get_forecast_statistics.png )
+
+- Qui di seguito è rappresentato l’UML class diagram dove sono state inserite tutte le classi del progetto e le rispettive relazioni tra esse come ad esempio:
+  - << use >>
+  - “extends”
+  - “Implements”
+  - “Aggregation”
+  - “Composition”
 
 
-- Qui di seguito è rappresentato l’UML class diagram dove sono state inserite tutte le classi del progetto e le rispettive relazioni tra esse come ad esempio: 
-    -	<< use >>
-    -	“extends”
-    -	“Implements”
-    -	“Aggregation”
-    -	“Composition”
-    
-    
+# JUnit tests
+
+Abbiamo implementato dei test per verificare principalmente se il tipo di dato ottenuto dalle nostre funzioni fosse effettivamente il tipo di dato da noi voluto (usando degli "assertTrue") e anche per verificare che le funzioni riportassero il dato che ci interessava ottenere (non solo il tipo) usando degli "assertEquals"
+
+Test sulla classe `City`: 
+
+* `void nameTest()`: questo test verifica il corretto svolgimento del metodo `toString()` all'interno della classe `City`.
+
+Tests sul controllore `HomeRestController`:
+
+* `void homeTest()`: questo test verifica che il tipo della funzione `home()`sia effettivamente `String`.
+* `void citiesLoadTest`: questo test verifica che il tipo di ritorno delle due funzioni (`citiesLoad` e `citiesStopLoad)` sia `String`; abbiamo dovuto passare la password (pwd) come parametro.
+* `void citiesTest()`: questo test verifica che la funzione `cities()`sia di tipo `List` affinchè si possa creare una lista di città; il `throws Exception` è necessario poichè è presente nella funzione da testare
+
+Tests sul controllore `ForecastRestController` :
+
+* `void getForecastForTest()`: questo test verifca che la funzione `getForecastFor()` sia di tipo `List`; anche in questo caso il `throws Exception` è necessario poichè presente anche nella funzione da testare.
+* `void startForecastAutoLookupTest()`: questo test verifica che il tipo della funzione `startForecastAutoLookup`sia `String`; inoltre abbiamo passato sia la password come parametro ma anche i parametri richiesti dalla funzione.
+* `void stopForecastAutoLookupTest()`: anche in questo caso il test serve a verificare il tipo di dato che ci viene fornito dalla funzione `stopForecastAutoLookup`; alla funzione passiamo ancora una volta la password.
+* `void startForecastSeedingTest()`: controlliamo anche in questo caso il tipo di dato della funzione `startForecastSeeding`sia `String`.
+* `void stopForecastSeeding()`: il test controlla il tipo effettivo della funzione `stopForecastSeeding` e inoltre verifica che il risultato della funzione sia consono a quanto ci si aspetta.
+* `void getStatisticsForTest()`: verifichiamo che il tipo della funzione `getStatisticsFor` sia `List`; inoltre anche in questo caso bisogna mettere `throws Exception` perchè presente anche nella funzione da testare.
+
+Abbiamo deciso di testare la correttezza delle funzioni dei controllori perchè sono la parte fondamentale del programma e dunque bisogna verificarne il giusto funzionamento.
+
+
 # Allegati
+
+* Sequences Diagram: già allegato in precedenza nel read me.
 
 - Classes Diagram:
 
 [Scarica qui l'UML del progetto in formto pdf](./uml/UML_progetto.pdf)
 
-![](./uml/UML_progetto.png "")
+![](./uml/UML_progetto.png )
 
 - UseCase Diagram:
 
 <img width="817" alt="UseCase Diagram" src="https://user-images.githubusercontent.com/77984592/112762996-e8807880-9002-11eb-899f-f5ec9cd0df5f.png">
 
-
 # Authors
 
-Nome | Matricola | Contributo
------------- | ------------- | -------------
-**Traian Emanuel Alexandru** | 1092537 | 33.3
-**Ubertini Francesca** | 1090348 | 33.3
-**Visi Andrea** | 1094249 | 33.3
 
+| Nome | Matricola | Contributo |
+| - | - | - |
+| **Traian Emanuel Alexandru** | 1092537 | 33.3 |
+| **Ubertini Francesca** | 1090348 | 33.3 |
+| **Visi Andrea** | 1094249 | 33.3 |
