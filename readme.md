@@ -380,9 +380,11 @@ Abbiamo deciso di testare la correttezza delle funzioni dei controllori perchè 
 
 - Classes Diagram:
 
+[Scarica qui l'UML delle classi del progetto in formato pdf](./uml/UML_progetto.pdf)
+
 ![](./uml/UML_progetto.png )
 
-[Scarica qui l'UML delle classi del progetto in formto pdf](./uml/UML_progetto.pdf)
+
 
 - Sequences Diagram: già allegati in precedenza.
 
